@@ -1,7 +1,7 @@
 // criando o próprio REDUCE
 
 // forma 01:
-Array.prototype.meuFilter = function (fn) {
+Array.prototype.meuReduce = function (fn) {
     const novoArray = []
     for (let i = 0; i < this.length; i++) {
         if (fn(this[i], i, this)) {
@@ -12,7 +12,7 @@ Array.prototype.meuFilter = function (fn) {
 }
 
 // forma 02:
-Array.prototype.meuFilter2 = function (fn) {
+Array.prototype.meuReduce2 = function (fn) {
     const novoArray = []
     this.forEach(el => {
         if (fn(el)) {
@@ -29,3 +29,5 @@ const carrinho = [
     { nome: 'Lapis', qtd: 3, preco: 5.82 },
     { nome: 'Tesoura', qtd: 1, preco: 19.20 },
 ]
+
+

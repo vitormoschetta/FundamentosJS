@@ -1,41 +1,40 @@
+// OBS: é muito improvável usar o Reduce separado do 'Map', ou do 'Filter', 
+// por isso o Reduce foi o último a ser estudaddo. 
+
 const alunos = [
-    { name: 'Aluno A', nota: 10 },
-    { name: 'Aluno B', nota: 5.4 },
-    { name: 'Aluno C', nota: 9.1 },
-    { name: 'Aluno B', nota: 5.5 },
-    { name: 'Aluno C', nota: 7.0 },
+    { nome: 'Aluno A', nota: 10 },
+    { nome: 'Aluno B', nota: 5.5 },
+    { nome: 'Aluno C', nota: 9.5 },
+    { nome: 'Aluno D', nota: 6.0 },
+    { nome: 'Aluno E', nota: 7.0 },
 ]
 
-// Missão: pegar a média da nota dos alunos aprovados (nota maior ou igual a 7):
+// Lembrando que a função Reduce seria como um 'Aggregate' do CSharp, retorna um único valor.
+// Sabendo disso, vamos retornar a média das notas dos alunos aprovados (nota maior ou igual a 7):
 
-let aprovados = el => el.nota >= 7
-let notas = el => el.nota
-let calculaMedia = (acumulador, el, indice, array) => {
-    if (indice == array.length - 1)
-        return (acumulador + el) / array.length
-    else
-        return acumulador + el
-}
+var aprovados = alunos.filter(el => el.nota >= 7)
 
-let mediaAprovados =
-    alunos
-        .filter(aprovados)
-        .map(notas)
-        .reduce(calculaMedia)
+var media =
+    aprovados
+        .map(el => el.nota)
+        .reduce((acumulador, el) => acumulador + el) / aprovados.length
 
-console.log(mediaAprovados)
+console.log(media)
+
+
 
 
 // Concluindo:
 
 // Filter => Filtra uma lista. 
-            // Não modifica os valores, mas faz comparações e retorna qualquer quantidade
-            // de elementos dessa lista.
+            // Ele itera sobre uma lista aplicando a função recebida. 
+            // Se o resultado da função for True, ele inclui o elemento na nova lista que será
+            // retornada.
 
 // Map => Transforma os elementos da lista.
             // Ele não modifica o TAMANHO da lista, mas pode modificar totalmente os seus 
             // elementos, inclusive de Objeto para propriedade, pegando apenas o valor de uma
-            // propriedade do objeto.
+            // propriedade do objeto. Sua ação depende da função recebida.
 
-// Reduce => Faz cálculos e retorna qualquer valor.
+// Reduce => Possui um acumulador, no qual retornará apenas um valor, após aplicar a função recebida.
 

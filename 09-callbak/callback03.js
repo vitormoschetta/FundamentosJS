@@ -1,9 +1,4 @@
-// MAP
-// parametro 01 => valor do array
-// parametro 02 => indice do array
-// parametro 03 => o próprio array
-
-
+// Map
 const nums = [1, 2, 3, 4, 5]
 
 const dobro = n => n * 2

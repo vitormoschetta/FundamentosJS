@@ -53,6 +53,8 @@ namespace csharp
             WriteLine(string.Join(", ", media));
             WriteLine(string.Join(", ", media2));
 
+
+
         }
     }
 }

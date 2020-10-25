@@ -1,5 +1,6 @@
 // criando o próprio MAP
 
+
 // forma 01:
 Array.prototype.meuMap = function (fn) {
     const novoArray = []
